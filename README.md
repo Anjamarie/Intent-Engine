@@ -9,7 +9,7 @@ While traditional metrics focus on conversion rates, this project introduces thr
 
   $$\text{Indecision Score} = \left( \frac{\text{Product Related Duration}}{\text{ProductRelated}} \right) \times \text{ExitRates}$$
 
-  Insight: High scores indicate a user who is stuck in "comparison paralysis"—spending significant time on products but showing a high probability of leaving the site.
+  *Insight: High scores indicate a user who is stuck in "comparison paralysis"—spending significant time on products but showing a high probability of leaving the site.*
 
   ### 2. Impulsivity Index
 
@@ -26,7 +26,6 @@ While traditional metrics focus on conversion rates, this project introduces thr
   A binary classification identifying users who skip "discovery" pages (Administrative or Informational) and go straight to product interactions.
 
   * Mission-Driven (1): High focus, low exploration.
-
   * Exploratory (0): High site engagement, often resulting in higher trust and conversion.
 
 
@@ -40,7 +39,21 @@ The project utilizes the `online_shoppers_intention.csv` dataset, which contains
   * **PageValues:** The average value for a web page that a user visited before completing an e-commerce transaction.
   * **Revenue:** The target variable (True/False) indicating a successful purchase.
 
-## Technical Stack
+## Dataset Insights
+The dataset contains 12,330 sessions. Initial analysis reveals:
+  * Exploratory Browsers (Goal Orientation = 0) actually show a higher conversion rate (~21%) than pure mission shoppers.
+  * High Indecision often correlates with specific VisitorType categories, allowing for targeted marketing interventions.
+
+
+***
+
+
+### Repository Structure
+  * `ShopperIntent.ipynb`: Main analysis and feature engineering notebook.
+  * `online_shoppers_intention.csv`: Raw session data containing 18 behavioral attributes.
+
+    
+### Technical Stack
   * Python 3.12
   * Pandas & NumPy: For feature engineering and data manipulation.
   * Jupyter Notebook: For interactive data exploration.
@@ -51,7 +64,7 @@ The project utilizes the `online_shoppers_intention.csv` dataset, which contains
 Clone the repository:
 ```bash
 
-git clone https://github.com/yourusername/shopper-intent.git
+git clone https://github.com/Anjamarie/Intent-Engine.git
 
 ```
 Install dependencies:
@@ -85,13 +98,4 @@ shopper_df['impulsivity_index'] = total_pages / total_duration
 shopper_df['is_goal_oriented'] = ((shopper_df['Administrative'] == 0) & 
                                   (shopper_df['Informational'] == 0)).astype(int)
 ```
-***
 
-### Dataset Insights
-The dataset contains 12,330 sessions. Initial analysis reveals:
-  * Exploratory Browsers (Goal Orientation = 0) actually show a higher conversion rate (~21%) than pure mission shoppers.
-  * High Indecision often correlates with specific VisitorType categories, allowing for targeted marketing interventions.
-
-### Repository Structure
-  * `ShopperIntent.ipynb`: Main analysis and feature engineering notebook.
-  * `online_shoppers_intention.csv`: Raw session data containing 18 behavioral attributes.
