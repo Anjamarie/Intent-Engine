@@ -45,6 +45,23 @@ The dataset contains 12,330 sessions. Initial analysis reveals:
   * High Indecision often correlates with specific VisitorType categories, allowing for targeted marketing interventions.
 
 
+
+***
+
+
+## Behavioral Insights
+Using R's `ggplot2`, we mapped every session into a behavioral matrix.
+
+![Shopper Matrix](shopper_matrix.png)
+
+* **Mission Shoppers (Goal-Oriented):** Exhibit lower impulsivity and higher focus, yet surprisingly lower conversion rates.
+* **Exploratory Browsers:** Show higher engagement and higher 'Indecision Scores', indicating they are actively comparing products before purchasing.
+
+
+## Visualizing Intent
+![Indecision Distribution](indecision_plot.png)
+![Intent Conversion](intent_conversion.png)
+
 ***
 
 
